@@ -1,0 +1,70 @@
+{
+	"error": 0,
+	"status": "success",
+	"date": "2017-05-12",
+	"results": [
+		{
+			"currentCity": "长沙市",
+			"pm25": "40",
+			"index": [
+				{
+					"title": "穿衣",
+					"zs": "热",
+					"tipt": "穿衣指数",
+					"des": "天气热，建议着短裙、短裤、短薄外套、T恤等夏季服装。"
+				}, {
+					"title": "洗车",
+					"zs": "较适宜",
+					"tipt": "洗车指数",
+					"des": "较适宜洗车，未来一天无雨，风力较小，擦洗一新的汽车至少能保持一天。"
+				}, {
+					"title": "感冒",
+					"zs": "易发",
+					"tipt": "感冒指数",
+					"des": "相对于今天将会出现大幅度降温，空气湿度较大，易发生感冒，请注意适当增加衣服。"
+				}, {
+					"title": "运动",
+					"zs": "较适宜",
+					"tipt": "运动指数",
+					"des": "天气较好，较适宜进行各种运动，但考虑气温较高且湿度较大，请适当降低运动强度，并及时补充水分。"
+				}, {
+					"title": "紫外线强度",
+					"zs": "中等",
+					"tipt": "紫外线强度指数",
+					"des": "属中等强度紫外线辐射天气，外出时建议涂擦SPF高于15、PA+的防晒护肤品，戴帽子、太阳镜。"
+				}
+			],
+			"weather_data": [
+				{
+					"date": "周五 05月12日 (实时：23℃)",
+					"dayPictureUrl": "http://api.map.baidu.com/images/weather/day/duoyun.png",
+					"nightPictureUrl": "http://api.map.baidu.com/images/weather/night/qing.png",
+					"weather": "多云转晴",
+					"wind": "西北风微风",
+					"temperature": "29 ~ 17℃"
+				}, {
+					"date": "周六",
+					"dayPictureUrl": "http://api.map.baidu.com/images/weather/day/qing.png",
+					"nightPictureUrl": "http://api.map.baidu.com/images/weather/night/qing.png",
+					"weather": "晴",
+					"wind": "南风微风",
+					"temperature": "32 ~ 17℃"
+				}, {
+					"date": "周日",
+					"dayPictureUrl": "http://api.map.baidu.com/images/weather/day/duoyun.png",
+					"nightPictureUrl": "http://api.map.baidu.com/images/weather/night/zhenyu.png",
+					"weather": "多云转阵雨",
+					"wind": "北风微风",
+					"temperature": "32 ~ 20℃"
+				}, {
+					"date": "周一",
+					"dayPictureUrl": "http://api.map.baidu.com/images/weather/day/zhenyu.png",
+					"nightPictureUrl": "http://api.map.baidu.com/images/weather/night/duoyun.png",
+					"weather": "阵雨转多云",
+					"wind": "西北风3-4级",
+					"temperature": "25 ~ 19℃"
+				}
+			]
+		}
+	]
+}

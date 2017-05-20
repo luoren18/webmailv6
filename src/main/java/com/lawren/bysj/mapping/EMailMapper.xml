@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lawren.bysj.dao.EMailMapper">
+	<resultMap id="BaseResultMap" type="com.lawren.bysj.pojo.EMail">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="subject" property="subject" jdbcType="VARCHAR" />
+		<result column="senddate" property="senddate" jdbcType="VARCHAR" />
+		<result column="replysign" property="replysign" jdbcType="BIT" />
+		<result column="isnew" property="isnew" jdbcType="BIT" />
+		<result column="addresser" property="addresser" jdbcType="VARCHAR" />
+		<result column="receiver" property="receiver" jdbcType="VARCHAR" />
+		<result column="cc" property="cc" jdbcType="VARCHAR" />
+		<result column="bcc" property="bcc" jdbcType="VARCHAR" />
+		<result column="messageid" property="messageid" jdbcType="VARCHAR" />
+		<result column="attachment" property="attachment" jdbcType="VARCHAR" />
+		<result column="uid" property="uid" jdbcType="INTEGER" />
+		<result column="bodytext" property="bodytext" jdbcType="LONGVARCHAR" />
+		<result column="plaincontent" property="plaincontent" jdbcType="LONGVARCHAR" />
+		<result column="stateid" property="stateid" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, subject, senddate, replysign, isnew, addresser, receiver, cc, bcc,
+		messageid,
+		attachment, uid ,bodytext, plaincontent ,stateid
+	</sql>
+	<!-- 根据id 查询 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from email
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+
+	<select id="selectByPrimaryMsgId" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from email
+		where messageid = #{messageid,jdbcType=VARCHAR}
+	</select>
+	
+	<select id="selectByUid" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from email
+		where uid = #{uid,jdbcType=INTEGER}
+	</select>
+
+
+	<select id="selectByStateid" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from email
+		where stateid = #{stateid,jdbcType=INTEGER}
+	</select>
+
+	<!-- 根据id 删除 -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from email
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+
+	<!-- 插入数据 -->
+	<insert id="insert" parameterType="com.lawren.bysj.pojo.EMail">
+		insert into email (id, subject, senddate,
+		replysign, isnew, addresser,
+		receiver, cc, bcc,
+		messageid, attachment, uid,
+		bodytext, plaincontent ,stateid)
+		values (#{id,jdbcType=INTEGER}, #{subject,jdbcType=VARCHAR},
+		#{senddate,jdbcType=VARCHAR},
+		#{replysign,jdbcType=BIT}, #{isnew,jdbcType=BIT}, #{addresser,jdbcType=VARCHAR},
+		#{receiver,jdbcType=VARCHAR}, #{cc,jdbcType=VARCHAR},
+		#{bcc,jdbcType=VARCHAR},
+		#{messageid,jdbcType=VARCHAR}, #{attachment,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER},
+		#{bodytext,jdbcType=LONGVARCHAR},
+		#{plaincontent,jdbcType=LONGVARCHAR},
+		#{stateid,jdbcType=INTEGER})
+	</insert>
+
+	<!-- 判断非空插入数据 -->
+	<insert id="insertSelective" parameterType="com.lawren.bysj.pojo.EMail">
+		insert into email
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="subject != null">
+				subject,
+			</if>
+			<if test="senddate != null">
+				senddate,
+			</if>
+			<if test="replysign != null">
+				replysign,
+			</if>
+			<if test="isnew != null">
+				isnew,
+			</if>
+			<if test="addresser != null">
+				addresser,
+			</if>
+			<if test="receiver != null">
+				receiver,
+			</if>
+			<if test="cc != null">
+				cc,
+			</if>
+			<if test="bcc != null">
+				bcc,
+			</if>
+			<if test="messageid != null">
+				messageid,
+			</if>
+			<if test="attachment != null">
+				attachment,
+			</if>
+			<if test="uid != null">
+				uid,
+			</if>
+			<if test="bodytext != null">
+				bodytext,
+			</if>
+			<if test="plaincontent != null">
+				plaincontent,
+			</if>
+			<if test="stateid != null">
+				stateid,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="subject != null">
+				#{subject,jdbcType=VARCHAR},
+			</if>
+			<if test="senddate != null">
+				#{senddate,jdbcType=VARCHAR},
+			</if>
+			<if test="replysign != null">
+				#{replysign,jdbcType=BIT},
+			</if>
+			<if test="isnew != null">
+				#{isnew,jdbcType=BIT},
+			</if>
+			<if test="addresser != null">
+				#{addresser,jdbcType=VARCHAR},
+			</if>
+			<if test="receiver != null">
+				#{receiver,jdbcType=VARCHAR},
+			</if>
+			<if test="cc != null">
+				#{cc,jdbcType=VARCHAR},
+			</if>
+			<if test="bcc != null">
+				#{bcc,jdbcType=VARCHAR},
+			</if>
+			<if test="messageid != null">
+				#{messageid,jdbcType=VARCHAR},
+			</if>
+			<if test="attachment != null">
+				#{attachment,jdbcType=VARCHAR},
+			</if>
+			<if test="uid != null">
+				#{uid,jdbcType=INTEGER},
+			</if>
+			<if test="bodytext != null">
+				#{bodytext,jdbcType=LONGVARCHAR},
+			</if>
+			<if test="plaincontent != null">
+				#{plaincontent,jdbcType=LONGVARCHAR},
+			</if>
+			<if test="stateid != null">
+				#{stateid,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 根据id 更新数据 -->
+	<update id="updateByPrimaryKeySelective" parameterType="com.lawren.bysj.pojo.EMail">
+		update email
+		<set>
+			<if test="subject != null">
+				subject = #{subject,jdbcType=VARCHAR},
+			</if>
+			<if test="senddate != null">
+				senddate = #{senddate,jdbcType=VARCHAR},
+			</if>
+			<if test="replysign != null">
+				replysign = #{replysign,jdbcType=BIT},
+			</if>
+			<if test="isnew != null">
+				isnew = #{isnew,jdbcType=BIT},
+			</if>
+			<if test="addresser != null">
+				addresser = #{addresser,jdbcType=VARCHAR},
+			</if>
+			<if test="receiver != null">
+				receiver = #{receiver,jdbcType=VARCHAR},
+			</if>
+			<if test="cc != null">
+				cc = #{cc,jdbcType=VARCHAR},
+			</if>
+			<if test="bcc != null">
+				bcc = #{bcc,jdbcType=VARCHAR},
+			</if>
+			<if test="messageid != null">
+				messageid = #{messageid,jdbcType=VARCHAR},
+			</if>
+			<if test="attachment != null">
+				attachment = #{attachment,jdbcType=VARCHAR},
+			</if>
+			<if test="uid != null">
+				uid = #{uid,jdbcType=INTEGER},
+			</if>
+			<if test="bodytext != null">
+				bodytext = #{bodytext,jdbcType=LONGVARCHAR},
+			</if>
+			<if test="plaincontent != null">
+				plaincontent = #{plaincontent,jdbcType=LONGVARCHAR},
+			</if>
+			<if test="stateid != null">
+				stateid = #{stateid,jdbcType=INTEGER},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<!-- 不进行非空判断更新数据 -->
+	<update id="updateByPrimaryKey" parameterType="com.lawren.bysj.pojo.EMail">
+		update email
+		set subject = #{subject,jdbcType=VARCHAR},
+		senddate = #{senddate,jdbcType=VARCHAR},
+		replysign = #{replysign,jdbcType=BIT},
+		isnew = #{isnew,jdbcType=BIT},
+		addresser = #{addresser,jdbcType=VARCHAR},
+		receiver = #{receiver,jdbcType=VARCHAR},
+		cc = #{cc,jdbcType=VARCHAR},
+		bcc = #{bcc,jdbcType=VARCHAR},
+		messageid = #{messageid,jdbcType=VARCHAR},
+		attachment = #{attachment,jdbcType=VARCHAR},
+		uid = #{uid,jdbcType=INTEGER},
+		bodytext = #{bodytext,jdbcType=LONGVARCHAR},
+		plaincontent = #{plaincontent,jdbcType=LONGVARCHAR},
+		stateid= #{stateid,jdbcType=INTEGER}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+</mapper>
